@@ -36,33 +36,41 @@ public class _1389 {
 			for(int j = 1; j <= n ; j++){
 				if(i != j){
 					path= new boolean[n +1 ];
-					
-					//System.out.println(findKebin(i , j, 1, path));
-					res[i][j] = res[j][i] = findKebin(i, j , 1 , path);
+					res[i][j]  = findKebin(i, j , 1 , path);
 				}
-			}
-		}
-		int num = 1;
-		int sum = 999999;
-		for(int i = 1; i <= n ; i++){
-			int temp = 0 ;
-			for(int j = 1; j <= n ; j++){
-				if(i != j){
-					temp += res[i][j];
-				}
-			}
-			if(sum > temp){
-				sum = temp;
-				num = i;
 			}
 		}
 		
-		System.out.println(num);
+		///결과 찾는부분
+//		int num = 1;
+//		int sum = 999999;
+//		for(int i = 1; i <= n ; i++){
+//			int temp = 0 ;
+//			for(int j = 1; j <= n ; j++){
+//				if(i != j){
+//					temp += res[i][j];
+//				}
+//			}
+//			if(sum > temp){
+//				sum = temp;
+//				num = i;
+//			}
+//		}
+//		System.out.println(num);
+		
+		for(int i = 1; i <= n ; i++){
+			for(int j = 1; j <= n ; j++){
+				System.out.print(res[i][j] +"\t");
+			}
+			System.out.println();
+		}
 	}
 	
 	public static int findKebin(int from , int to, int length, boolean[] path ){
 		int result = 99999 ; 
-		//;
+		if(from == 4 && to == 5){
+			System.out.println("");
+		}
 		if(relation[from][to] == 1){
 			return length;
 		}

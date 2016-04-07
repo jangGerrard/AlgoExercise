@@ -21,7 +21,7 @@ public class _1939 {
 			int from = sc.nextInt();
 			int to = sc.nextInt();
 			for(int j = 0 ;  ; j++){
-				if(bridges[from][to][j] != 0){
+				if(bridges[from][to][j] == 0){
 					bridges[to][from][j] = bridges[from][to][j] = sc.nextInt();
 					break;
 				}
@@ -32,42 +32,63 @@ public class _1939 {
 		to = sc.nextInt();
 		//입력은 끝
 		
-		
 		Queue<Packing> q = new LinkedList<Packing>();
-		q.add(new Packing(from));
-		while(q.size() != 0 ){
-			//s
-			Packing p = q.remove();
-			int from = p.num;
-			
-			for(int i = 1 ; i <= n ; i++	 ){
-				if(i != from ){
-					for(int j = 1 ; j <= m ; j++ ){
-						if(bridges[from][i][j] != 0){
-							//q.add(new Packing());
-						} else {
-							break;
-						}
+		int min = 9999999;
+		q.add(new Packing(from , to ));
+		
+		while(q.size() != 0){
+			Packing p  = q.remove();
+			if(bridges[p.from][p.to][0] != 0 ){
+				int temp = findMin(p.from, p.to);
+				if(min > temp ){
+					min = temp;
+				}
+			}else {
+				for(int i =  1; i <= n ; i++	){
+					
+					if( bridges[i][p.to][0] != 0 && i != p.from ){
+						q.add(new Packing(i , p.to));
+					} else {
+						
 					}
+					
 				}
 			}
 		}
 		
-		
+		System.out.println(min);
+	}
+	
+	public static int findMin(int from , int to){
+		int min = 999999;
+		for(int i = 0 ; i <= m ; i++ ){
+			if(bridges[from][to][i] != 0){
+				if(min > bridges[from][to][i]){
+					min = bridges[from][to][i];
+				}
+			} else {
+				break;
+			}
+		}
+		return min;
 	}
 }
 
 class Packing{
 	
-	public int num;
+	public int from;
+	public int to;
 	public int min;
 	
-	public Packing(int num){
-		this.num = num;
+	public Packing(int from , int to){
+		this.from = from;
+		this.to = to;
 	}
 	
-	public Packing(int num, int min){
-		this.num = num;
+	public Packing(int from , int to , int min){
+		this.from = from ; 
+		this.to = to;
 		this.min = min;
 	}
+	
 }

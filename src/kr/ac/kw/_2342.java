@@ -10,21 +10,27 @@ public class _2342 {
 		{0, 4, 3, 1, 3},
 		{0, 3, 4, 3, 1}
 	};
+	public static int[] cur = {0,0};
 	static int [] input;
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		boolean isFin = false; 
-		do{
+		cur = new int[2];
+		input = new int[100000+1];
+		
+		for(int i = 1;  ; i++){
+			
 			int in = sc.nextInt();
+			input[i] = in;
 			
 			
 			
-			
-			
-			if(in == 0){
-				isFin = true;
+			if(in == 0 ){
+				break;
 			}
-		} while(!isFin);
+		}
+		
+		
+		
 		
 	}
 }

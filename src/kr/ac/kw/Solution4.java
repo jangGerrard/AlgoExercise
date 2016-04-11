@@ -27,9 +27,6 @@ public class Solution4 {
 			}
 			System.out.println("Case #"+t);
 			System.out.println(d[n]);
-			
 		}
-		
-		
 	}
 }

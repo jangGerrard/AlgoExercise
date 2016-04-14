@@ -42,11 +42,24 @@ public class _7576 {
 			}
 		}
 		
+		int ans = -2;
+		boolean strange = false;
 		for(int i = 1; i <= n ; i++){
 			for(int j = 1;  j <= m ; j++){
-				System.out.print(d[i][j]+"\t");
+				if(d[i][j] > ans ){
+					ans = d[i][j];
+				}
+				
+				if(d[i][j] == -1){
+					strange = true;
+				}
 			}
-			System.out.println();
+		}
+		
+		if(strange){
+			System.out.println(-1);
+		} else {
+			System.out.println(ans);
 		}
 	}
 	

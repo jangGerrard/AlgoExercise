@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class _7576 {
 	
-	static int m ; 
+	static int m ;
 	static int n;
 	static int in[][];
 	static int d[][];
@@ -34,12 +34,23 @@ public class _7576 {
 		
 		
 		
+		Queue<Point> q = new LinkedList<Point>();
 		for(int i = 1; i <= n ; i++){
 			for(int j = 1;  j <= m ; j++){
 				if(in[i][j] == 1){
-					bfs(i , j );
+					d[i][j] = 0;
+					q.add(new Point(j,i));
 				}
 			}
+		}
+		
+		bfs(q);
+		
+		for(int i = 1; i <= n ; i++){
+			for(int j = 1;  j <= m ; j++){
+				System.out.print(d[i][j] + "\t");
+			}
+			System.out.println();
 		}
 		
 		int ans = -2;
@@ -49,13 +60,11 @@ public class _7576 {
 				if(d[i][j] > ans ){
 					ans = d[i][j];
 				}
-				
 				if(d[i][j] == -1){
 					strange = true;
 				}
 			}
 		}
-		
 		if(strange){
 			System.out.println(-1);
 		} else {
@@ -63,11 +72,8 @@ public class _7576 {
 		}
 	}
 	
-	public static void bfs(int y , int x){
-		d[y][x] = 0;
-		Queue<Point> q = new LinkedList<Point>();
-		q.add(new Point(x,y));
-		while(q.size() != 0	){
+	public static void bfs(Queue<Point> q){
+		while(q.size() != 0 ){
 			Point p = q.remove();
 			for(int k = 0 ; k < 4 ; k++){
 				int nx = p.x + dx[k];
@@ -83,8 +89,5 @@ public class _7576 {
 				}
 			}
 		}
-		
-		
-		
 	}
 }

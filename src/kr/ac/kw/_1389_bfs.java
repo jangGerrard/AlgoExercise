@@ -59,7 +59,6 @@ public class _1389_bfs {
 			for(int i = 1; i <= n ; i++){
 				if(in[elem][i] == 1 && res[start][i] == 0 && start != i ){
 					q.add(new Pack(i , depth+1));
-					//여기에 값을 어떻게 주지?
 					res[start][i] =  depth+1;
 				}
 			}

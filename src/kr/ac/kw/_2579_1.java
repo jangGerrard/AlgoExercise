@@ -13,7 +13,7 @@ public class _2579_1 {
 		n = sc.nextInt();
 		
 		in = new int[n+1];
-		d = new int []
+		//d = new int []
 		
 		
 		

@@ -19,7 +19,7 @@ public class _2011 {
 			d[i][1] = d[i-1][1] + d[i-1][2];
 			int temp = Integer.parseInt(in.substring(i-1, i));
 			if(temp <= 26){
-				d[i][1]
+				//d[i][1]
 			}
 				
 		}

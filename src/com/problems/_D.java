@@ -1,4 +1,4 @@
-package com.jennifer.jgjang0202;
+package com.problems;
 
 import java.util.LinkedList;
 import java.util.Queue;

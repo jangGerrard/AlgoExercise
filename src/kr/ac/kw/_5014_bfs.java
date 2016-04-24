@@ -43,7 +43,11 @@ public class _5014_bfs {
 			}
 		}
 		
-		System.out.println(res[g]);
+		if(res[g] == -1){
+			System.out.println("use the stairs");
+		} else {
+			System.out.println(res[g]);
+		}
 		
 	}
 }

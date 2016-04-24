@@ -20,7 +20,7 @@ public class _E {
 		for(int i = 0 ; i < jennifer.length(); i++){
 			String c = jennifer.charAt(i)+"";
 			
-			Pattern p = Pattern.compile(".*"+c+".*");
+			Pattern p = Pattern.compile("[a-z]+");
 			Matcher m = p.matcher(replaced);
 			//
 			while(m.find()){

@@ -10,7 +10,8 @@
 //import java.util.regex.Matcher;
 //import java.util.regex.Pattern;
 //
-////Coupang is the fastest growing e-commerce company and comtinuing to gain growth momentum At the same time, Coupang is now conquering Korea.
+////Coupang is the fastest growing e-commerce company and comtinuing to gain growth momentum 
+////At the same time, Coupang is now conquering Korea.
 //
 //
 //public class Coupang_1 {
@@ -25,9 +26,9 @@
 //		for(int j = 0 ; j < strArr.length; j++){
 //			strArr[j] = strArr[j].toLowerCase();
 //			
-//			Pattern p = Pattern.compile("[a-z]+");
-//			Matcher m = p.matcher(strArr[j]);
-//			String temp = "";
+//			Pattern p = Pattern.compile("[a-z]+"); // Pattern p  = Pattern.compile("[a-z]+");
+//			Matcher m = p.matcher(strArr[j]); 		///Matcher m = p.matcher("string");
+//			String temp = "";  							//while(m.find()) { m.group() /// 이게 결과야 }
 //			while(m.find()){
 //				temp += m.group();
 //			}

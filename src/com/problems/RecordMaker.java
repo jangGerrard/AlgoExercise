@@ -3,6 +3,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class RecordMaker {
+	
+	public static final int MAX_CNT = 99999;
+	
 	public static void main(String[] args){
 		
 		if(args.length < 1){
@@ -22,7 +25,9 @@ public class RecordMaker {
 		Set<String> idSet = new HashSet<String>();
 		
 		for(int i = 0 ; i < count ; i++){
-			String idStr = getIdString(idSet);
+			String idStr = getIdString(idSet, count);
+			if(idStr.equals("filled"))
+				return;
 			int score = (int)(Math.random() * 99);
 			System.out.printf("NT%s %02d\n", idStr, score);
 		}
@@ -30,13 +35,13 @@ public class RecordMaker {
 		
 	}
 
-	private static String getIdString(Set<String> idSet) {
+	private static String getIdString(Set<String> idSet, int count) {
 		
 		boolean maked = false;
 		String result ="";
 		
 		while(!maked){
-			int rand = (int) (Math.random() * 99999);
+			int rand = (int) (Math.random() * MAX_CNT);
 			int singleDigit  = 0;
 			for(int i = 1 ; i < 5 ; i++){
 				int _10 =(int) Math.pow(10 , i);
@@ -54,9 +59,12 @@ public class RecordMaker {
 				idSet.add(result);
 				maked = true;
 			}
+			if(idSet.size() >= MAX_CNT){
+				System.out.println("All id(0-99999) is filled");
+				return "filled";
+			}
 			
 		}
-		
 		return result;
 	}
 	
